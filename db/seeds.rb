@@ -8,9 +8,9 @@
 
 require 'csv'
 
-CSV.foreach(Rails.root.join('lib/valores2021.csv'), headers:true) do |row|
-    Value.create({
-        date: row[0],
-        value: row[1]
-    })
+CSV.foreach(Rails.root.join("lib/tasks/valores2021.csv"), headers:true) do |row|
+    Value.create!(row.to_hash)
+    
 end
+
+User.create(username: 'juan')
